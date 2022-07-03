@@ -7,5 +7,5 @@ Indoor temperature is taken from a DHT-11 Module hooked up to a GPIO on the Pi, 
 
 Images of display in action: 
 
-<img width="325" title="Indoor temperature and humidity display on LCD" alt="Indoor temperature and humidity display on LCD" src="/public/indoor-temp.jpg" />
-<img width="325" title="Outdoor temperature and humidity display on LCD" alt="Outdoor temperature and humidity display on LCD" src="/public/outdoor-temp.jpg" />
+<img width="325" title="Indoor temperature and humidity display on LCD" alt="Indoor temperature and humidity display on LCD" src="/public/indoor-temp.JPG" />
+<img width="325" title="Outdoor temperature and humidity display on LCD" alt="Outdoor temperature and humidity display on LCD" src="/public/outdoor-temp.JPG" />
