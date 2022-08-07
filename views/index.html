@@ -3,16 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>LCD Lightswitch</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
-    <h1>Hello there</h1>
+    <main>
+      <section class="color-picker-wrapper">
+        <h1>LCD Lightswitch</h1>
 
-    
-    <script src="" async defer></script>
+        <div class="switch-wrapper row">
+          <p>On</p>
+          <label class="switch"> 
+            <input type="checkbox" id="lcd-light" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+      </section>
+    </main>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+    <script src="main.js" async defer></script>
   </body>
 </html>
