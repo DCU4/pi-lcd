@@ -1,0 +1,165 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 60px;
+  font-family: 'Avenir', sans-serif;
+  font-size: 16px;
+  background-color: #444;
+  color: #DDD;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+  transition: all .5s ease-in;
+}
+
+p {
+  margin: 10px 0;
+  font-size: 1.25em;
+  
+}
+h1 {
+  font-size: 1.35em;
+}
+
+img.showing {
+  opacity: 1;
+}
+
+main {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.loader {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: 10px solid;
+  border-color: lightblue lightgreen;
+  opacity: 0;
+  transition: all .5s ease;
+  animation: loading 1s infinite;
+}
+
+.loader.loading {
+  opacity: 1;
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+/* The switch - the box around the slider */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 33px;
+}
+
+
+/* Hide default HTML checkbox */
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+/* The slider */
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(25px);
+  -ms-transform: translateX(25px);
+  transform: translateX(25px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#color-changer {
+  border: none;
+  width: 35%;
+  padding: 0px;
+}
+
+input[type=color]::-webkit-color-swatch,
+input[type=color]::-moz-color-swatch {
+  border-color: transparent;
+  border: none;
+  padding:0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  padding: 10px 0;
+}
+
+@media all and (max-width: 720px) {
+  body {
+    padding: 20px;
+  }
+  main {
+    width: 100%;
+  }
+}
