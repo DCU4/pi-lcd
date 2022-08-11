@@ -7,6 +7,11 @@ const date = new Date().toLocaleDateString('en-US', options);
 const day = new Date().toLocaleDateString('en-US', dayOptions);
 const lcd = new LCD();
 let intervalId;
+// const express = require('express');
+// const app = express();
+// const http = require('http').createServer(app);
+// const io = require('socket.io')(http);
+
 
 // functions
 const readIndoorTemp = async () => {
@@ -30,12 +35,34 @@ const getPiHoleData = async () => {
   return call.data;
 }
 
+const runScript = (script, args) => {
+  var exec = require('child_process').exec;
+  exec(`python3 "${__dirname}/scripts/${script}" ${args}`, function (error, stdout, stderr) {
+    if (error) {
+      console.log('errorororor', error)
+    } else {
+      console.log('stdout: ' + stdout);
+    }
+  });
+}
+
+// somehow send to client when on
+const socketConnect = () => {
+  io.sockets.on('connection', function (socket) {
+    socket.emit('light', data);
+  });
+}
+
+
+// need to "cache" data
+// check if data is the same
+// could have 3 objs to check
+
 module.exports = {
   read: function () {
-    lcd.light(1)
+    runScript('lights_on.py');
     let index = 0;
     let lcdOptions = ['pihole', 'indoor', 'outdoor'];
-    console.log(intervalId);
     intervalId = setInterval(() => {
       let option = lcdOptions[index++ % lcdOptions.length]
       console.log(option)
@@ -88,13 +115,9 @@ module.exports = {
     }, 5000);
   },
   lightsOff: function() {
+    lcd.clear();
     clearInterval(intervalId);
     intervalId = null;
-    lcd.clear();
-    lcd.light(0);
-  },
-  lightsOn: function() {
-    lcd.light(1)
-    this.read();
+    runScript('lights_off.py');
   }
 };
